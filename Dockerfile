@@ -17,6 +17,10 @@ RUN rm -f /tmp/serf.zip
 RUN mkdir -p /etc/serf
 EXPOSE 7946
 
+#Install nginx
+RUN apt-get -qqy install nginx
+EXPOSE 80
+
 #Configure supervisord
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
