@@ -22,10 +22,10 @@ RUN apt-get -qqy install nginx
 EXPOSE 80
 
 #Configure supervisord
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD bundle/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #Configure serf
-ADD serf-config /etc/serf
+ADD bundle/serf-config /etc/serf
 
 #set root password
 
