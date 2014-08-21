@@ -1,4 +1,4 @@
-FROM iheve/docker-serf-be
+FROM iheve/serf-reverse-proxy-back-end
 MAINTAINER thibaut.coutelou@d2-si.eu
 
 RUN apt-get update
