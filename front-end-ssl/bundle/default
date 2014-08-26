@@ -1,0 +1,17 @@
+server {
+    listen 443 default_server ssl;
+    server_name _;
+
+    ssl_certificate server.crt;
+    ssl_certificate_key server.key;
+
+    location / {
+        index index.html;
+        root /var/www/default/;
+    }
+}
+
+server {
+    listen 80;
+    return 301 https://$host$request_uri;
+}

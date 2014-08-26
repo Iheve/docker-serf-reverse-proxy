@@ -1,5 +1,7 @@
 ## docker-serf-be-demo
 
+Code available at : https://github.com/Iheve/docker-serf-reverse-proxy
+
 Proof of concept of an http back-end using serf to manage the configuration
 It uses serf to keep an up-to-date nginx configuration of the front-end.
 

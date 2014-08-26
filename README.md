@@ -27,10 +27,18 @@ You will be able to browse http://localhost/
 ![Alt text](https://raw.githubusercontent.com/Iheve/docker-serf-reverse-proxy/master/img/update.png)
 
 ## Back end
-You can find the base back-end image in the back-end folder.
+You can find the base back-end image in the *back-end* folder.
 
 ## Back end demo
-You can find a demo back-end image in the back-end-demo folder.
+You can find a demo back-end image in the *back-end-demo* folder.
+
+## Front end ssl
+If you want to use HTTPS, you can find a base front-end image in the
+*front-end-ssl* folder.
+
+## Front end ssl demo
+You can find a demo front-end imae int the *front-end-ssl-demo* folder. This
+image already have an autosigned certificate issued to ``*.example.org`
 
 ## Walk through
 Update your /etc/hosts :
@@ -46,6 +54,23 @@ Start a demo-back-end :
 `docker run -d -e "SERVICE_NAME=example.org"  iheve/serf-reverse-proxy-be-demo`
 
 Access http://example.org/ in your web browser. After less thant 30 secondes,
+you will find the default apache2 page. You went through the reverse-proxy
+container to hit the second container.
+
+## Walk through https
+Update your /etc/hosts :
+`echo "127.0.0.1 www.example.org" >> /etc/hosts`
+
+Start the front-end :
+`docker run -d -p 443:443 iheve/serf-reverse-proxy-ssl-demo`
+
+Access https://www.example.org/ in your web browser. You will find the default
+page (currently unavailable). You stayed on the reverse-proxy container.
+
+Start a demo-back-end :
+`docker run -d -e "SERVICE_NAME=www.example.org"  iheve/serf-reverse-proxy-be-demo`
+
+Access https://example.org/ in your web browser. After less thant 30 secondes,
 you will find the default apache2 page. You went through the reverse-proxy
 container to hit the second container.
 
