@@ -1,4 +1,4 @@
-FROM iheve/serf-reverse-proxy-secure
+FROM iheve/serf-reverse-proxy-ssl
 MAINTAINER thibaut.coutelou@d2-si.eu
 
 # Add ssl certificate and key
